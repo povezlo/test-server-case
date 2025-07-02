@@ -1,0 +1,81 @@
+type Track {
+  id: String!
+  title: String!
+  artist: String!
+  album: String
+  genres: [String!]!
+  slug: String!
+  coverImage: String
+  audioFile: String
+  createdAt: String!
+  updatedAt: String!
+}
+
+type TracksConnection {
+  data: [Track!]!
+  pageInfo: PageInfo!
+}
+
+input TracksInput {
+  filter: TracksFilterInput
+  sort: TracksSortInput
+  pagination: PaginationInput
+}
+
+input TracksFilterInput {
+  search: String
+  genre: String
+  artist: String
+}
+
+input TracksSortInput {
+  field: TrackSortField = CREATED_AT
+  order: SortOrder = DESC
+}
+
+input TrackCreateInput {
+  title: String!
+  artist: String!
+  album: String
+  genres: [String!]!
+  coverImage: String
+}
+
+input TrackUpdateInput {
+  title: String
+  artist: String
+  album: String
+  genres: [String!]
+  coverImage: String
+}
+
+enum TrackSortField {
+  TITLE
+  ARTIST
+  ALBUM
+  CREATED_AT
+  UPDATED_AT
+}
+
+type Query {
+  tracks(input: TracksInput): TracksConnection!
+  track(id: String!): Track
+  trackBySlug(slug: String!): Track
+}
+
+type Mutation {
+  createTrack(input: TrackCreateInput!): Track!
+  updateTrack(id: String!, input: TrackUpdateInput!): Track!
+  deleteTrack(id: String!): Boolean!
+  deleteTracks(ids: [String!]!): BulkDeleteResponse!
+  uploadTrackFile(id: String!, file: Upload!): Track!
+  deleteTrackFile(id: String!): Track!
+}
+
+type BulkDeleteResponse {
+  success: Boolean!
+  successIds: [String!]!
+  failedIds: [String!]!
+  errors: [Error!]
+}
+ 

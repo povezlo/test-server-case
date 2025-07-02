@@ -1,0 +1,26 @@
+# Создать новый трек
+mutation CreateTrack($input: TrackCreateInput!) {
+  createTrack(input: $input) {
+    id
+    title
+    artist
+    album
+    genres
+    slug
+    coverImage
+    audioFile
+    createdAt
+    updatedAt
+  }
+}
+
+# Пример переменных:
+# {
+#   "input": {
+#     "title": "Bohemian Rhapsody",
+#     "artist": "Queen",
+#     "album": "A Night at the Opera",
+#     "genres": ["Rock", "Pop"],
+#     "coverImage": "https://example.com/cover.jpg"
+#   }
+# }

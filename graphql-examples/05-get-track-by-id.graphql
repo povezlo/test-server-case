@@ -1,0 +1,40 @@
+# Получить трек по ID
+query GetTrackById($id: String!) {
+  track(id: $id) {
+    id
+    title
+    artist
+    album
+    genres
+    slug
+    coverImage
+    audioFile
+    createdAt
+    updatedAt
+  }
+}
+
+# Получить трек по slug
+query GetTrackBySlug($slug: String!) {
+  trackBySlug(slug: $slug) {
+    id
+    title
+    artist
+    album
+    genres
+    slug
+    coverImage
+    audioFile
+    createdAt
+    updatedAt
+  }
+}
+
+# Пример переменных:
+# {
+#   "id": "1234567890"
+# }
+# или
+# {
+#   "slug": "bohemian-rhapsody"
+# } 

@@ -1,0 +1,26 @@
+scalar DateTime
+scalar Upload
+
+enum SortOrder {
+  ASC
+  DESC
+}
+
+type PageInfo {
+  total: Int!
+  page: Int!
+  limit: Int!
+  totalPages: Int!
+}
+
+input PaginationInput {
+  page: Int = 1
+  limit: Int = 10
+}
+
+type Error {
+  message: String!
+  code: String
+  field: String
+}
+ 

@@ -1,0 +1,42 @@
+# Получить треки с пагинацией и фильтрацией
+query GetTracks($input: TracksInput) {
+  tracks(input: $input) {
+    data {
+      id
+      title
+      artist
+      album
+      genres
+      slug
+      coverImage
+      audioFile
+      createdAt
+      updatedAt
+    }
+    pageInfo {
+      total
+      page
+      limit
+      totalPages
+    }
+  }
+}
+
+# Пример переменных:
+# {
+#   "input": {
+#     "filter": {
+#       "search": "Rock",
+#       "genre": "Rock",
+#       "artist": "Queen"
+#     },
+#     "sort": {
+#       "field": "CREATED_AT",
+#       "order": "DESC"
+#     },
+#     "pagination": {
+#       "page": 1,
+#       "limit": 10
+#     }
+#   }
+# }

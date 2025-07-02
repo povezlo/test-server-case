@@ -1,0 +1,10 @@
+# Получить все жанры
+query GetGenres {
+  genres {
+    id
+    name
+    slug
+    createdAt
+    updatedAt
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "1751204458411",
+  "title": "Test Track GraphQL",
+  "artist": "Test Artist",
+  "genres": [
+    "Rock",
+    "Pop"
+  ],
+  "slug": "test-artist-test-track-graphql",
+  "audioFile": "1751204458411_audio.mp3",
+  "createdAt": "2025-06-29T13:40:58.411Z",
+  "updatedAt": "2025-06-29T21:22:33.902Z"
+}
