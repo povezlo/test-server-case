@@ -1,0 +1,10 @@
+type ActiveTrack {
+  id: ID!
+  title: String!
+  artist: String!
+  audioFile: String
+}
+
+type Subscription {
+  activeTrack: ActiveTrack
+}

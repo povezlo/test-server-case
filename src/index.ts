@@ -10,6 +10,7 @@ import routes from './routes';
 import { initializeDb } from './utils/db';
 import config from './config';
 import { schema } from './graphql/schema';
+import { startActiveTrackInterval } from './graphql/resolvers/subscriptions/track.subscriptions';
 
 async function start() {
   try {
@@ -83,10 +84,13 @@ async function start() {
           reply,
         };
       },
+      subscription: true,
     });
     
     // Register routes
     await fastify.register(routes);
+    
+    startActiveTrackInterval(fastify);
     
     // Start server
     await fastify.listen({ 
