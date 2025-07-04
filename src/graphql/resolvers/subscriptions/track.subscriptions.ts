@@ -54,10 +54,10 @@ export function startActiveTrackInterval(server: FastifyInstance) {
       console.error('Error in active track interval:', error);
     }
     
-    setTimeout(changeActiveTrack, Math.floor(Math.random() * 1000) + 1000);
+    setTimeout(changeActiveTrack, Math.floor(Math.random() * 10000) + 10000);
   };
   
-  setTimeout(changeActiveTrack, 1000);
+  setTimeout(changeActiveTrack, 10000);
 }
 
 export const trackSubscriptions = {
